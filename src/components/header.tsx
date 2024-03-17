@@ -63,7 +63,12 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <div style={{ height: "28px", borderBottom: "1px solid #ececec" }}>
+      <div
+        style={{
+          height: "28px",
+          borderBottom: "1px solid #ececec",
+        }}
+      >
         <h2
           style={{
             fontSize: "14px",
@@ -104,13 +109,19 @@ const Header: React.FC = () => {
           height="90px"
         />
       </div>
-      <Menu
-        onClick={onClick}
-        selectedKeys={[current]}
-        mode="horizontal"
-        items={items}
-        style={{ padding: "0 100px" }}
-      />
+      <div
+        style={{
+          padding: "0 100px",
+          backgroundColor: "#fff",
+        }}
+      >
+        <Menu
+          onClick={onClick}
+          selectedKeys={[current]}
+          mode="horizontal"
+          items={items}
+        />
+      </div>
     </>
   );
 };

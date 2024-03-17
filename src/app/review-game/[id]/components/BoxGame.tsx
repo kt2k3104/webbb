@@ -20,7 +20,6 @@ const BoxGame = ({ game, index }: any) => {
     <div
       style={{
         width: "100%",
-        height: "170px",
         padding: "15px",
         position: "relative",
       }}
@@ -33,59 +32,67 @@ const BoxGame = ({ game, index }: any) => {
           backgroundColor: "#fff",
           display: "flex",
           borderRadius: "10px",
+          flexDirection: "column",
         }}
       >
         <div
           style={{
-            width: "25%",
-            margin: "20px 0",
-            borderRight: "1px solid #ced4da",
             display: "flex",
-            justifyContent: "center",
+            padding: "10px 0",
+            borderBottom: "1px solid #ced4da",
           }}
         >
-          <img
-            src={game.img}
-            alt=""
-            style={{ width: "100px", height: "100px" }}
-          />
+          <div
+            style={{
+              width: "50%",
+
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src={game.img}
+              alt=""
+              style={{ width: "80px", height: "80px" }}
+            />
+          </div>
+
+          <div
+            style={{
+              width: "50%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "start",
+            }}
+          >
+            <h3
+              style={{
+                color: "rgba(252, 185, 0, 1)",
+                WebkitAnimation: "blink_new 1000ms infinite",
+                textAlign: "center",
+                fontSize: "18px",
+                fontWeight: "700",
+              }}
+            >
+              {game.name}
+            </h3>
+            <p
+              style={{
+                color: "#ef9c38",
+                textAlign: "center",
+                fontWeight: "500",
+                fontSize: "12px",
+              }}
+            >
+              {game.title}
+            </p>
+          </div>
         </div>
 
         <div
           style={{
-            width: "25%",
-            margin: "20px 0",
-            borderRight: "1px solid #ced4da",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <h3
-            style={{
-              color: "rgba(252, 185, 0, 1)",
-              WebkitAnimation: "blink_new 1000ms infinite",
-              textAlign: "center",
-            }}
-          >
-            {game.name}
-          </h3>
-          <p
-            style={{
-              color: "#ef9c38",
-              textAlign: "center",
-              fontWeight: "700",
-            }}
-          >
-            {game.title}
-          </p>
-        </div>
-
-        <div
-          style={{
-            width: "25%",
-            margin: "20px 0",
-            borderRight: "1px solid #ced4da",
+            borderBottom: "1px solid #ced4da",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -128,11 +135,9 @@ const BoxGame = ({ game, index }: any) => {
 
         <div
           style={{
-            width: "25%",
             margin: "20px 0",
             padding: "0 10px",
             justifyContent: "center",
-            alignItems: "center",
           }}
           className="row"
         >
@@ -142,14 +147,14 @@ const BoxGame = ({ game, index }: any) => {
             style={{
               width: "130px",
               height: "40px",
-              borderRadius: "5px",
+              borderRadius: "999px",
               textDecoration: "none",
               display: "block",
               textAlign: "center",
               lineHeight: "40px",
               color: "#fff",
               marginRight: "5px",
-              fontSize: "14px",
+              fontSize: "12px",
               background:
                 "linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 19%, rgb(65, 88, 208) 68%)",
             }}
@@ -163,12 +168,12 @@ const BoxGame = ({ game, index }: any) => {
             style={{
               width: "130px",
               height: "40px",
-              borderRadius: "5px",
+              borderRadius: "999px",
               textDecoration: "none",
               display: "block",
               textAlign: "center",
               lineHeight: "40px",
-              fontSize: "14px",
+              fontSize: "12px",
               color: "#fff",
               background:
                 "linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%)",
@@ -184,9 +189,9 @@ const BoxGame = ({ game, index }: any) => {
         style={{
           position: "absolute",
           top: "0px",
-          left: "50px",
-          width: "30px",
-          height: "35px",
+          left: "20px",
+          width: "25px",
+          height: "25px",
           background:
             "linear-gradient(135deg, rgb(6, 147, 227) 60%, rgb(155, 81, 224) 100%)",
           border: "none",
