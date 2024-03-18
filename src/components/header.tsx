@@ -74,6 +74,7 @@ const Header: React.FC = () => {
             fontSize: "14px",
             fontWeight: "700",
             margin: "0 100px",
+            lineHeight: "28px",
           }}
         >
           {pathName.split("/")[1] === "card-game"

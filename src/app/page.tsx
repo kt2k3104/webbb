@@ -1,20 +1,18 @@
 import BoxGame from "@/components/boxGame/BoxGame";
+import { IGame } from "@/types/backend";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
+import axios from "axios";
 
-export default function Home() {
-  async function create(formData: FormData) {
-    "use server";
-    console.log(">>> check formData: ", formData.get("username"));
-    // mutate data
-    // revalidate cache
-  }
-
+export default async function Home() {
+  const res = await axios.get("http://localhost:8000/games");
+  const games = res.data.games;
+  console.log(games);
   return (
     <>
       <div style={{ padding: "0 100px" }}>
         <form
-          action={create}
+          // action={create}
           style={{
             width: "100%",
             height: "66px",
@@ -33,7 +31,7 @@ export default function Home() {
             <SearchOutlined />
           </button>
         </form>
-        {games.map((game, index) => (
+        {games.map((game: IGame, index: number) => (
           <BoxGame key={index} game={game} index={index} />
         ))}
         <div>
@@ -1295,200 +1293,82 @@ export default function Home() {
   );
 }
 
-export const games = [
-  {
-    name: "Gowin",
-    img: "https://w.ladicdn.com/6422ce6d7b5c4b002cf8f9bf/gowin-xin-chao-1-20240227093849-p_2jw.gif",
-    title: "Game Bài Đẳng Cấp",
-    star: "5.0",
-    review: [],
-  },
-  {
-    name: "S26 Bet",
-    img: "https://w.ladicdn.com/s450x450/6422ce6d7b5c4b002cf8f9bf/photo_2024-02-19_18-13-28-20240219101350-tjngb.jpg",
-    title: "Game bài viễn tây",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Hit Club",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2023/02/Hit-club-logo.jpg",
-    title: "Game bài đại phú",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Gemwin",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2023/08/Gemwin-logo.jpg",
-    title: "Game bài vượt thời gian",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Win79 Vip",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2022/08/logo-win79.png",
-    title: "Win79 tặng code 100k",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Iwan club",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2022/01/iwinclub-lgoo.jpg",
-    title: "Game bài uy tín",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Man club",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2021/08/icon-MAN-e1620358240943.png",
-    title: "Game bài phái mạnh",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "B52",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2021/01/b52-club.png",
-    title: "Game bài tặng thưởng tân thủ",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "789 Club",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2021/01/789-club-logo.png",
-    title: "Game bài Les Vesga - Tặng code 50k miễn phí",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Sunwin",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2021/06/sunwin-logo.png",
-    title: "Game bài đổi thưởng hấp dẫn",
-    star: "4.0",
-    review: [],
-  },
-  {
-    name: "Nhất vip club",
-    img: "https://gamedoithuong3.net/wp-content/uploads/2021/03/nhatvip-logo.png",
-    title: "Chơi là nhất",
-    star: "4.0",
-    review: [],
-  },
-];
-
-const NoiDungBaiViet1 = [
-  {
-    title: "Gioi thieu ve Go88",
-    noidung: {
-      text: "Go88 là 1 trong 10 game đánh bài đổi thưởng uy tín bậc nhất tại Việt Nam, được ví như thiên đường cờ bạc online với đa dạng các trò chơi online khác nhau từ đánh bài casino trực tuyến, game mậu binh, phỏm, sâm lốc,…",
-      img: "anh?",
-    },
-    concuano: [],
-  },
-  {
-    title: "Nhung tro choi co tai Go88",
-    noidung: {
-      text: "tro 1",
-      img: "anh1",
-    },
-    concuano: [],
-  },
-  {
-    title: "Tìm hiểu chi tiết các sảnh tại Go88",
-    noidung: {
-      text: "",
-      img: "",
-    },
-    concuano: [
-      {
-        title: "Sảnh game bài hấp dẫn không thể thiếu",
-        noidung: {
-          text: "hihi",
-          img: "anh?",
-        },
-        concuano: [],
-      },
-      {
-        title: "Siêu phẩm giải trí trong làng nổ hũ ",
-        noidung: {
-          text: "tro 1",
-          img: "anh1",
-        },
-        concuano: [
-          {
-            title: "Sảnh game bài hấp dẫn không thể thiếu",
-            noidung: {
-              text: "hihi",
-              img: "anh?",
-            },
-            concuano: [],
-          },
-          {
-            title: "Siêu phẩm giải trí trong làng nổ hũ ",
-            noidung: {
-              text: "tro 1",
-              img: "anh1",
-            },
-            concuano: [
-              {
-                title: "Tây Du Ký",
-                noidung: {
-                  text: "hihi",
-                  img: "anh?",
-                },
-              },
-              {
-                title: "Kho Báu Tứ Linh",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-              {
-                title: "Thần Tài",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-              {
-                title: "The Witcher",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-              {
-                title: "Ăn Khế Trả Vàng",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-              {
-                title: "Sơn Tinh Thủy Tinh",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-              {
-                title: "Kho Tàng Ngũ Long",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-              {
-                title: "Cung Hỷ Phát Tài",
-                noidung: {
-                  text: "tro 1",
-                  img: "anh1",
-                },
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
+// export const games = [
+//   {
+//     name: "Gowin",
+//     img: "https://w.ladicdn.com/6422ce6d7b5c4b002cf8f9bf/gowin-xin-chao-1-20240227093849-p_2jw.gif",
+//     title: "Game Bài Đẳng Cấp",
+//     star: "5.0",
+//     review: [],
+//   },
+//   {
+//     name: "S26 Bet",
+//     img: "https://w.ladicdn.com/s450x450/6422ce6d7b5c4b002cf8f9bf/photo_2024-02-19_18-13-28-20240219101350-tjngb.jpg",
+//     title: "Game bài viễn tây",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Hit Club",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2023/02/Hit-club-logo.jpg",
+//     title: "Game bài đại phú",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Gemwin",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2023/08/Gemwin-logo.jpg",
+//     title: "Game bài vượt thời gian",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Win79 Vip",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2022/08/logo-win79.png",
+//     title: "Win79 tặng code 100k",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Iwan club",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2022/01/iwinclub-lgoo.jpg",
+//     title: "Game bài uy tín",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Man club",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2021/08/icon-MAN-e1620358240943.png",
+//     title: "Game bài phái mạnh",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "B52",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2021/01/b52-club.png",
+//     title: "Game bài tặng thưởng tân thủ",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "789 Club",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2021/01/789-club-logo.png",
+//     title: "Game bài Les Vesga - Tặng code 50k miễn phí",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Sunwin",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2021/06/sunwin-logo.png",
+//     title: "Game bài đổi thưởng hấp dẫn",
+//     star: "4.0",
+//     review: [],
+//   },
+//   {
+//     name: "Nhất vip club",
+//     img: "https://gamedoithuong3.net/wp-content/uploads/2021/03/nhatvip-logo.png",
+//     title: "Chơi là nhất",
+//     star: "4.0",
+//     review: [],
+//   },
+// ];

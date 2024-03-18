@@ -11,6 +11,7 @@ export const handleCreateGameAction = async (data: any) => {
     },
   });
   //   revalidateTag("list-users");
+  console.log(res.json());
   return await res.json();
 };
 
@@ -18,7 +19,7 @@ export const handleUpdateGameAction = async (data: any) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL_BACKEND}/games/${data.id}`,
     {
-      method: "PUT",
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",

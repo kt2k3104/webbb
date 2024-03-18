@@ -1,7 +1,7 @@
-import { games } from "@/app/page";
+import { IGame } from "@/types/backend";
 import BoxGame from "./BoxGame";
 
-const Sidebar = () => {
+const Sidebar = ({ games }: any) => {
   return (
     <div className="d-none d-md-block col-md-4">
       <div
@@ -15,7 +15,7 @@ const Sidebar = () => {
       >
         TOP GAME BÀI ĐỔI THƯỞNG
       </div>
-      {games.map((game, index) => {
+      {games.map((game: IGame, index: number) => {
         return <BoxGame key={index} game={game} index={index} />;
       })}
     </div>

@@ -51,7 +51,7 @@ const BoxGame = ({ game, index }: any) => {
             }}
           >
             <img
-              src={game.img}
+              src={game.imageURL}
               alt=""
               style={{ width: "80px", height: "80px" }}
             />
@@ -85,7 +85,7 @@ const BoxGame = ({ game, index }: any) => {
                 fontSize: "12px",
               }}
             >
-              {game.title}
+              {game.description}
             </p>
           </div>
         </div>
@@ -101,13 +101,13 @@ const BoxGame = ({ game, index }: any) => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
-            {game.star >= 1 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star >= 2 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star >= 3 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star >= 4 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star == 5 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 1 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 2 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 3 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 4 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating == 5 && <StarFilled style={{ color: "#ffd32a" }} />}
             <span style={{ marginLeft: "5px", fontWeight: "500" }}>
-              {game.star}
+              {game.rating}
             </span>
           </div>
 

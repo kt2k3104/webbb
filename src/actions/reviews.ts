@@ -18,7 +18,7 @@ export const handleUpdateReviewAction = async (data: any) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL_BACKEND}/users/${data.id}`,
     {
-      method: "PUT",
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",

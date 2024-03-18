@@ -7,16 +7,21 @@ export interface IUser {
 export interface IGame {
   id: number;
   name: string;
-  image: string;
+  imageURL: string;
   description: string;
   link: string;
   rating: number;
-  reviews: IReview[];
+  game_reviews: IReview[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface IReview {
   id: number;
   title: string;
-  contents: string[];
-  image: string;
+  contents: string;
+  imageURL: string;
+  createdAt: string;
+  updateAt: string;
+  gameid: number;
 }

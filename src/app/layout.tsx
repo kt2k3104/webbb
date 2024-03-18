@@ -25,7 +25,7 @@ export default function RootLayout({
       >
         <StyledComponentsRegistry>
           <Header />
-          {children}
+          <div style={{ minHeight: "calc(100vh - 407px" }}>{children}</div>
           <Footer />
         </StyledComponentsRegistry>
       </body>

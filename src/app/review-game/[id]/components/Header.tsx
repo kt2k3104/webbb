@@ -1,11 +1,12 @@
+import { IGame } from "@/types/backend";
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({ game }: any) => {
   return (
     <>
       <h1>
-        Go88 – Trải nghiệm game bài trí tuệ – Tải game Go88 IOS/ Android/ PC/
-        APK mới nhất -Update 03/2024
+        {game.name} – Trải nghiệm game bài trí tuệ – Tải game {game.name} IOS/
+        Android/ PC/ APK mới nhất -Update 03/2024
       </h1>
       <span style={{ fontSize: "12px" }}>
         <Link style={{ color: "#333", textDecoration: "none" }} href="/">

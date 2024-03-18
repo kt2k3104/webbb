@@ -1,3 +1,4 @@
+import { IGame } from "@/types/backend";
 import {
   CheckCircleOutlined,
   RightCircleOutlined,
@@ -5,7 +6,7 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 
-const BoxGame = ({ game, index }: any) => {
+const BoxGame = ({ game, index }: { game: IGame; index: number }) => {
   const keyframes = `
     @keyframes blink_new {
       0% {
@@ -44,11 +45,13 @@ const BoxGame = ({ game, index }: any) => {
             justifyContent: "center",
           }}
         >
-          <img
-            src={game.img}
-            alt=""
-            style={{ width: "100px", height: "100px" }}
-          />
+          <a href={game.link} target="blank">
+            <img
+              src={game.imageURL}
+              alt=""
+              style={{ width: "100px", height: "100px" }}
+            />
+          </a>
         </div>
 
         <div
@@ -61,15 +64,17 @@ const BoxGame = ({ game, index }: any) => {
             justifyContent: "center",
           }}
         >
-          <h3
-            style={{
-              color: "rgba(252, 185, 0, 1)",
-              WebkitAnimation: "blink_new 1000ms infinite",
-              textAlign: "center",
-            }}
-          >
-            {game.name}
-          </h3>
+          <a href={game.link} target="blank" style={{ textDecoration: "none" }}>
+            <h3
+              style={{
+                color: "rgba(252, 185, 0, 1)",
+                WebkitAnimation: "blink_new 1000ms infinite",
+                textAlign: "center",
+              }}
+            >
+              {game.name}
+            </h3>
+          </a>
           <p
             style={{
               color: "#ef9c38",
@@ -77,7 +82,7 @@ const BoxGame = ({ game, index }: any) => {
               fontWeight: "700",
             }}
           >
-            {game.title}
+            {game.description}
           </p>
         </div>
 
@@ -94,13 +99,13 @@ const BoxGame = ({ game, index }: any) => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
-            {game.star >= 1 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star >= 2 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star >= 3 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star >= 4 && <StarFilled style={{ color: "#ffd32a" }} />}
-            {game.star == 5 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 1 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 2 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 3 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating >= 4 && <StarFilled style={{ color: "#ffd32a" }} />}
+            {game.rating == 5 && <StarFilled style={{ color: "#ffd32a" }} />}
             <span style={{ marginLeft: "5px", fontWeight: "500" }}>
-              {game.star}
+              {game.rating}
             </span>
           </div>
 
