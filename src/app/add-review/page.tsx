@@ -8,19 +8,25 @@ const AddReview = async () => {
   return (
     <div style={{ padding: "30px 100px" }}>
       <h1>Add Review</h1>
-      <div className="grid text-center">
+      <div className="row text-center" style={{ gap: "10px" }}>
         {games.map((game: any) => {
           return (
             <Link
               href={`/add-review/${game.id}`}
               key={game.id}
               className="g-col-6 g-col-md-4"
+              style={{ display: "block", width: "100px" }}
             >
               <img
                 src={game.imageURL}
                 alt=""
-                style={{ width: "100px", height: "100px" }}
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  borderRadius: "10px",
+                }}
               />
+              <p>{game.name}</p>
             </Link>
           );
         })}

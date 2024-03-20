@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import Link from "next/link";
 import { useState } from "react";
 
 const AddGame = (props: any) => {
@@ -28,10 +29,11 @@ const AddGame = (props: any) => {
 
   return (
     <form
-      style={{ padding: "30px 100px" }}
+      style={{ padding: "0 100px 30px" }}
       onSubmit={handleSubmitAddReview}
       className="needs-validation"
     >
+      <Link href={"/add-review"}>return</Link>
       <h2>Add Review Game:</h2>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
@@ -51,7 +53,9 @@ const AddGame = (props: any) => {
       </div>
       <div className="mb-3">
         <label htmlFor="contents" className="form-label">
-          Contents: (use {`"`}\n{`"`} for new line)
+          Contents: (use {`"`}
+          {"//enter"}
+          {`"`} for line break)
         </label>
         <textarea
           className="form-control"
@@ -81,7 +85,7 @@ const AddGame = (props: any) => {
         <div className="invalid-feedback">Please choose a username.</div>
       </div>
 
-      <div className="col-12">
+      <div className="col-12" style={{ textAlign: "center" }}>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
