@@ -5,14 +5,12 @@ import { Input } from "antd";
 import axios from "axios";
 
 export default async function Home() {
-  const res = await axios.get("http://localhost:8000/games");
+  const res = await axios.get("http://143.110.146.15/games");
   const games = res.data.games;
-  console.log(games);
   return (
     <>
       <div style={{ padding: "0 100px" }}>
         <form
-          // action={create}
           style={{
             width: "100%",
             height: "66px",
@@ -27,7 +25,10 @@ export default async function Home() {
             type="text"
             placeholder="tìm kiếm game bài"
           />
-          <button style={{ width: "54px", height: "32px" }} type="submit">
+          <button
+            style={{ width: "54px", height: "32px", border: "none" }}
+            type="submit"
+          >
             <SearchOutlined />
           </button>
         </form>

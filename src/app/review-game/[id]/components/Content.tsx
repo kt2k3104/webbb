@@ -3,10 +3,9 @@ import { Image } from "antd";
 import BoxContent from "./BoxContent";
 
 const Content = async ({ game, index, reviews }: any) => {
-  console.log(reviews);
   return (
     <div
-      style={{ height: "100px", paddingTop: "15px", position: "relative" }}
+      style={{ paddingTop: "15px", position: "relative" }}
       className="col-sm-12 col-md-8"
     >
       <div

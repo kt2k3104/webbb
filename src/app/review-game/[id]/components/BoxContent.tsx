@@ -1,7 +1,7 @@
 import { Image } from "antd";
 
 const BoxContent = ({ data }: any) => {
-  const datacontents = data.contents.split("\n");
+  const datacontents = data.contents.split("//enter");
   return (
     <div>
       <h2 style={{ fontSize: "20px", fontWeight: "700" }}>{data.title}</h2>
@@ -13,7 +13,7 @@ const BoxContent = ({ data }: any) => {
       </div>
       {data.imageURL !== "" && (
         <div style={{ margin: "15px 0 50px", textAlign: "center" }}>
-          <Image src={data.image} alt="" width="80%" />
+          <Image src={data.imageURL} alt="" width="80%" />
         </div>
       )}
     </div>

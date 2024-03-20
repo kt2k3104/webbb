@@ -1,7 +1,10 @@
 "use client";
 
 import { IReview } from "@/types/backend";
+import { CloseOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const EditGame = (props: any) => {
@@ -13,10 +16,9 @@ const EditGame = (props: any) => {
   useEffect(() => {
     const handleGetReview = async () => {
       const res = await axios.get(
-        `http://localhost:8000/reviews/${params.gameid}`
+        `http://143.110.146.15/reviews/${params.gameid}`
       );
       setReviews(res.data.reviews);
-      console.log(res.data.reviews);
     };
     handleGetReview();
   }, []);
@@ -24,7 +26,7 @@ const EditGame = (props: any) => {
   const handleSubmitUpdateReview = async (e: any) => {
     e.preventDefault();
     const res = await axios.post(
-      `http://localhost:8000/reviews/${selectReview?.id}`,
+      `http://143.110.146.15/reviews/${selectReview?.id}`,
       {
         title: selectReview?.title,
         contents: selectReview?.contents,
@@ -38,29 +40,62 @@ const EditGame = (props: any) => {
   };
 
   return (
-    <div style={{ padding: "0 100px", width: "100vw" }}>
-      <h1>Edit review</h1>
+    <div style={{ padding: "0 100px 30px" }}>
+      <Link href={"/edit-review"}>Return</Link>
+      <h1>List reviews:</h1>
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
           {reviews.map((review: any) => {
             return (
-              <p
+              <div
                 key={review.id}
                 style={{
-                  color: "blue",
-                  display: "block",
-                  marginTop: "10px",
-                  textDecoration: "underline",
-                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
                 }}
-                onClick={() => setSelectReview(review)}
               >
-                {review.title}
-              </p>
+                <p>-</p>
+                <p
+                  key={review.id}
+                  style={{
+                    color: "blue",
+                    display: "block",
+                    textDecoration: "underline",
+                    marginLeft: "5px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setSelectReview(review)}
+                >
+                  {review.title}
+                </p>
+              </div>
             );
           })}
         </div>
-        <form style={{ flex: "1" }} onSubmit={handleSubmitUpdateReview}>
+        <form
+          style={
+            selectReview
+              ? { flex: "1", position: "relative" }
+              : { display: "none" }
+          }
+          onSubmit={handleSubmitUpdateReview}
+        >
+          <Button
+            style={{
+              position: "absolute",
+              top: "0",
+              right: "0",
+              width: "32px",
+              height: "32px",
+              borderRadius: "50%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onClick={() => setSelectReview(null)}
+          >
+            <CloseOutlined />
+          </Button>
           <h3
             style={{
               whiteSpace: "nowrap",
@@ -91,7 +126,9 @@ const EditGame = (props: any) => {
           </div>
           <div className="mb-3">
             <label htmlFor="contents" className="form-label">
-              Contents: (use {`"`}\n{`"`} for new line)
+              Contents: (use {`"`}
+              {"//enter"}
+              {`"`} for line break)
             </label>
             <textarea
               className="form-control"
@@ -127,9 +164,9 @@ const EditGame = (props: any) => {
             <div className="invalid-feedback">Please choose a username.</div>
           </div>
 
-          <div className="col-12">
+          <div className="col-12" style={{ textAlign: "center" }}>
             <button type="submit" className="btn btn-primary">
-              Submit
+              Save
             </button>
           </div>
         </form>

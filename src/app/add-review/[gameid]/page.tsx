@@ -12,13 +12,12 @@ const AddGame = (props: any) => {
   const handleSubmitAddReview = async (e: any) => {
     e.preventDefault();
 
-    const res = await axios.post("http://localhost:8000/reviews", {
+    const res = await axios.post("http://143.110.146.15/reviews", {
       title,
       contents,
       imageURL,
       gameid: params.gameid,
     });
-    console.log(res);
     if (res.data.message === "create review success") {
       alert("Create review success");
       setTitle("");

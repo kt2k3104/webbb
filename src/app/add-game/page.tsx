@@ -5,7 +5,7 @@ const AddGame = () => {
   const handleSubmitAddGame = async (e: any) => {
     e.preventDefault();
 
-    const res = await axios.post("http://localhost:8000/games", {
+    const res = await axios.post("http://143.110.146.15/games", {
       name: e.target.name.value,
       imageURL: e.target.image.value,
       description: e.target.description.value,
@@ -24,6 +24,7 @@ const AddGame = () => {
       onSubmit={handleSubmitAddGame}
       className="needs-validation"
     >
+      <h2>Add a new game</h2>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Name Game
@@ -54,13 +55,12 @@ const AddGame = () => {
         <label htmlFor="description" className="form-label">
           Description
         </label>
-        <textarea
+        <input
           className="form-control"
           name="description"
-          rows={3}
           placeholder="Game Bài Đẳng Cấp"
           required
-        ></textarea>
+        ></input>
         <div className="invalid-feedback">Please choose a username.</div>
       </div>
 
@@ -90,7 +90,7 @@ const AddGame = () => {
         />
         <div className="invalid-feedback">Please choose a username.</div>
       </div>
-      <div className="col-12">
+      <div className="col-12" style={{ textAlign: "center" }}>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

@@ -11,7 +11,6 @@ export const handleCreateGameAction = async (data: any) => {
     },
   });
   //   revalidateTag("list-users");
-  console.log(res.json());
   return await res.json();
 };
 

@@ -1,11 +1,12 @@
+import { Image } from "antd";
 import axios from "axios";
 import Link from "next/link";
 
 const AddReview = async () => {
-  const res = await axios.get("http://localhost:8000/games");
+  const res = await axios.get("http://143.110.146.15/games");
   const games = res.data.games;
   return (
-    <>
+    <div style={{ padding: "30px 100px" }}>
       <h1>Add Review</h1>
       <div className="grid text-center">
         {games.map((game: any) => {
@@ -24,7 +25,7 @@ const AddReview = async () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

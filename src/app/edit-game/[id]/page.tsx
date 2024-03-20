@@ -1,6 +1,7 @@
 "use client";
 import { IGame } from "@/types/backend";
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const EditGame = (props: any) => {
@@ -15,14 +16,13 @@ const EditGame = (props: any) => {
   useEffect(() => {
     const handleFetchGame = async () => {
       const res: any = await axios.get(
-        "http://localhost:8000/games/" + params.id
+        "http://143.110.146.15/games/" + params.id
       );
       setName(res.data.game.name);
       setImageURL(res.data.game.imageURL);
       setDescription(res.data.game.description);
       setLink(res.data.game.link);
       setRating(res.data.game.rating);
-      console.log(res);
     };
 
     handleFetchGame();
@@ -31,7 +31,7 @@ const EditGame = (props: any) => {
   const handleSubmitEditGame = async (e: any) => {
     e.preventDefault();
 
-    const res = await axios.post("http://localhost:8000/games/" + params.id, {
+    const res = await axios.post("http://143.110.146.15/games/" + params.id, {
       name: e.target.name.value,
       imageURL: e.target.image.value,
       description: e.target.description.value,
@@ -44,13 +44,10 @@ const EditGame = (props: any) => {
     }
   };
   return (
-    <div>
+    <div style={{ padding: "0px 100px 30px" }}>
+      <Link href={"/edit-game"}>return</Link>
       <h1>Edit Game: {name}</h1>
-      <form
-        style={{ padding: "30px 100px" }}
-        onSubmit={handleSubmitEditGame}
-        className="needs-validation"
-      >
+      <form onSubmit={handleSubmitEditGame} className="needs-validation">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name Game
@@ -89,17 +86,16 @@ const EditGame = (props: any) => {
           <label htmlFor="description" className="form-label">
             Description
           </label>
-          <textarea
+          <input
             className="form-control"
             name="description"
-            rows={3}
             placeholder="Game Bài Đẳng Cấp"
             required
             value={description}
             onChange={(e) => {
               setDescription(e.target.value);
             }}
-          ></textarea>
+          />
           <div className="invalid-feedback">Please choose a username.</div>
         </div>
 
@@ -137,7 +133,7 @@ const EditGame = (props: any) => {
           />
           <div className="invalid-feedback">Please choose a username.</div>
         </div>
-        <div className="col-12">
+        <div className="col-12" style={{ textAlign: "center" }}>
           <button type="submit" className="btn btn-primary">
             Submit
           </button>

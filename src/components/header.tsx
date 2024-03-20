@@ -54,10 +54,8 @@ const Header: React.FC = () => {
   const [current, setCurrent] = useState("homepage");
 
   const pathName = usePathname();
-  console.log(pathName.split("/")[1]);
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
   };
 

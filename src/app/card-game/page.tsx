@@ -1,9 +1,5 @@
 const BlogsPage = () => {
-    return (
-        <div>
-            blogs page
-        </div>
-    )
-}
+  return <div>Game Đánh Bài</div>;
+};
 
 export default BlogsPage;
