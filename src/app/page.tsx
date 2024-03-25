@@ -12,7 +12,7 @@ export default async function Home() {
       "Cache-Control": "no-cache",
     },
   });
-  const games = res.data.games;
+  const games: IGame[] = res.data.games;
   return (
     <>
       <div className="home-wrapper">
