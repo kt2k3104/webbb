@@ -2,7 +2,12 @@ import axios from "axios";
 import Link from "next/link";
 
 const EditGame = async () => {
-  const res = await axios.get("http://143.110.146.15/games");
+  const res = await axios.get("http://143.110.146.15/games", {
+    // Không sử dụng cache
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+  });
   const games = res.data.games;
 
   return (

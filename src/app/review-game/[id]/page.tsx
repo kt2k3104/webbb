@@ -12,6 +12,7 @@ const ReviewGamePage = async (props: any) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
     },
   });
   resGame = await resGame.json();
@@ -26,7 +27,13 @@ const ReviewGamePage = async (props: any) => {
   });
 
   const resReviews: any = await axios.get(
-    `http://143.110.146.15/reviews/${params.id}`
+    `http://143.110.146.15/reviews/${params.id}`,
+    {
+      // Không sử dụng cache
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    }
   );
 
   const Reviews: IReview[] = resReviews.data.reviews;
