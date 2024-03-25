@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import "@/app/styles.scss";
 
 const AddGame = () => {
   const handleSubmitAddGame = async (e: any) => {
@@ -20,9 +21,8 @@ const AddGame = () => {
 
   return (
     <form
-      style={{ padding: "30px 100px" }}
       onSubmit={handleSubmitAddGame}
-      className="needs-validation"
+      className="add-game-wrapper needs-validation"
     >
       <h2>Add a new game</h2>
       <div className="mb-3">

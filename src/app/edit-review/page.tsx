@@ -6,7 +6,7 @@ const EditGame = async () => {
   const games = res.data.games;
 
   return (
-    <div style={{ padding: "30px 100px" }}>
+    <div className="edit-review-wrapper">
       <h1>Edit Review</h1>
       <div className="row text-center" style={{ gap: "10px" }}>
         {games.map((game: any) => {

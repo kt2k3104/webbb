@@ -6,6 +6,7 @@ import { Button } from "antd";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "@/app/styles.scss";
 
 const EditGame = (props: any) => {
   const [reviews, setReviews] = useState<IReview[]>([]);
@@ -40,11 +41,21 @@ const EditGame = (props: any) => {
   };
 
   return (
-    <div style={{ padding: "0 100px 30px" }}>
-      <Link href={"/edit-review"}>Return</Link>
-      <h1>List reviews:</h1>
-      <div style={{ display: "flex" }}>
-        <div style={{ width: "50%" }}>
+    <div className="edit-review-id-wrapper">
+      <Link
+        style={selectReview ? { display: "none" } : { display: "block" }}
+        href={"/edit-review"}
+      >
+        Return
+      </Link>
+      <h1 style={selectReview ? { display: "none" } : { display: "block" }}>
+        List reviews:
+      </h1>
+      <div className="edit-review-id-content">
+        <div
+          style={selectReview ? { display: "none" } : { display: "block" }}
+          className="edit-review-id-content-list"
+        >
           {reviews.map((review: any) => {
             return (
               <div

@@ -1,8 +1,8 @@
 "use client";
-import { IGame } from "@/types/backend";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "@/app/styles.scss";
 
 const EditGame = (props: any) => {
   const [name, setName] = useState("");
@@ -44,7 +44,7 @@ const EditGame = (props: any) => {
     }
   };
   return (
-    <div style={{ padding: "0px 100px 30px" }}>
+    <div className="edit-game-id-wrapper">
       <Link href={"/edit-game"}>return</Link>
       <h1>Edit Game: {name}</h1>
       <form onSubmit={handleSubmitEditGame} className="needs-validation">

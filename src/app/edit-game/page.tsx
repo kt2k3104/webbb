@@ -1,12 +1,13 @@
 import axios from "axios";
 import Link from "next/link";
+import "@/app/styles.scss";
 
 const EditGame = async () => {
   const res = await axios.get("http://143.110.146.15/games");
   const games = res.data.games;
 
   return (
-    <div style={{ padding: "30px 100px" }}>
+    <div className="edit-game-wrapper">
       <h1>Edit Game</h1>
       <div className="row text-center" style={{ gap: "10px" }}>
         {games.map((game: any) => {

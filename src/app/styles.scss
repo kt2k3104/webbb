@@ -149,3 +149,25 @@
       padding: 30px 100px;
    }
 }
+
+.add-game-wrapper,
+.edit-game-wrapper,
+.edit-review-wrapper,
+.add-review-wrapper{
+   padding: 10px;
+   @include responsive($breakpoint: $breakpoint-lg){
+      padding: 30px 100px;
+   }
+}
+
+.edit-game-id-wrapper,
+.edit-review-id-wrapper{
+   padding: 10px;
+   @include responsive($breakpoint: $breakpoint-lg){
+      padding: 0px 100px 30px;
+   }
+}
+.edit-review-id-content{
+   display: flex;
+   padding: 10px;
+}
