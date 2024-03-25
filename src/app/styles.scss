@@ -1,0 +1,140 @@
+@import './mixins.scss';
+@import "./valiables.scss";
+
+.home-wrapper{
+   @include responsive($breakpoint: $breakpoint-lg){
+      padding: 0 100px;
+   }
+   padding: 0 10px;
+}
+.header-wrapper{
+   border-bottom: 1px solid #ececec;
+   h2{
+      @include responsive($breakpoint: $breakpoint-lg){
+         margin: 0 100px;
+
+      }
+      margin: 0 10px;
+   }
+}
+.header-images{
+   @include responsive($breakpoint: $breakpoint-lg){
+      flex-direction: row;
+      padding: 0 100px;
+   }
+   flex-direction: column;
+   padding: 0 10px;
+}
+.header-menu{
+   @include responsive($breakpoint: $breakpoint-lg){
+      padding: 0 100px;
+   }
+   padding: 0 10px;
+}
+
+.BoxGame-wrapper{
+   width: 100%;
+   padding: 15px;
+   position: relative;
+   height: 270px;
+   @include responsive($breakpoint: $breakpoint-lg){
+      width: 100%;
+      padding: 15px;
+      position: relative;
+      height: 170px;
+   }
+   .BoxGame-content{
+      @include responsive($breakpoint: $breakpoint-lg){
+         flex-direction: row;
+      }
+      flex-direction: column;
+   }
+   .BoxGame-content-1,
+   .BoxGame-content-2{
+      @include responsive($breakpoint: $breakpoint-lg){
+         width: 50%;
+      }
+      width: 100%;
+   }
+   .BoxGame-content-2{
+      flex-direction: column;
+      align-items: center;
+      .BoxGame-content-2-1,
+      .BoxGame-content-2-2{
+         width: 100%;
+         border-right: 1px solid #ced4da;
+         height: 48px;
+         @include flex($direction: column);
+         a{
+            line-height: 48px;
+         }
+      }
+      @include responsive($breakpoint: $breakpoint-lg){
+         flex-direction: row;
+         .BoxGame-content-2-1,
+         .BoxGame-content-2-2{
+            margin: 20px 0;
+            height: 100px;
+         }
+         .BoxGame-content-2-1{
+            div{
+               width: 100%;
+               @include flex()
+            }
+         }
+         .BoxGame-content-2-2{
+            @include flex($direction: column, $gap: 5px);
+            padding: 0 10px;
+            a{
+               line-height: 40px;
+            }
+            @include responsive($breakpoint: $breakpoint-xl){
+               flex-direction: row;
+            }
+         }
+      }
+   }
+}
+
+.footer-wrapper{
+   width: 100%;
+   background-color: #fff;
+   padding: 0;
+   @include flex($direction: column,$gap: 10px);
+   .footer-content-1{
+      flex-direction: row;
+      height: auto;
+      a{
+         display: block;
+         width: 100%;
+         img{width: 100%;}
+      }
+      p{
+         padding: 0 10px;
+         width: 100%;
+      }
+      @include responsive($breakpoint: $breakpoint-lg){
+         height: 132px;
+      }
+   }
+   .footer-content-2{
+      width: 100%;
+      height: auto;
+      background-color: #000;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0 10px;
+      @include responsive($breakpoint: $breakpoint-lg){
+         height: 96px;
+         padding: 0 100px;
+      }
+   }
+}
+
+.review-game-wrapper{
+   padding: 10px;
+   @include responsive($breakpoint: $breakpoint-lg){
+      padding: 30px 100px;
+   }
+}

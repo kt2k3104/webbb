@@ -3,6 +3,7 @@ import Content from "./components/Content";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import axios from "axios";
+import "@/app/styles.scss";
 
 const ReviewGamePage = async (props: any) => {
   const { params } = props;
@@ -31,7 +32,7 @@ const ReviewGamePage = async (props: any) => {
   const Reviews: IReview[] = resReviews.data.reviews;
 
   return (
-    <div style={{ padding: "30px 100px" }}>
+    <div className="review-game-wrapper">
       <Header game={game} />
       <div style={{ marginTop: "15px" }} className="row">
         <Content game={game} index={index} reviews={Reviews} />

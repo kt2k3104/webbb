@@ -3,13 +3,14 @@ import { IGame } from "@/types/backend";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import axios from "axios";
+import "./styles.scss";
 
 export default async function Home() {
   const res = await axios.get("http://143.110.146.15/games");
   const games = res.data.games;
   return (
     <>
-      <div style={{ padding: "0 100px" }}>
+      <div className="home-wrapper">
         <form
           style={{
             width: "100%",
@@ -74,7 +75,7 @@ export default async function Home() {
               className="aligncenter wp-image-5349 size-full"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Go88-cong-game-1.jpg"
               alt="Khái niệm về game bài đổi thưởng"
-              width="800"
+              width="80%"
               // height="361"
             />
           </p>
@@ -179,7 +180,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5348"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/toc-do-nap-rut.jpg"
               alt="Tốc độ nạp, rút nhanh gọn không nhiều thủ tục"
-              width="800"
+              width="80%"
               // height="406"
             />
           </p>
@@ -224,7 +225,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5347"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/lien-he-uy-tin.jpg"
               alt="Dịch vụ khách hàng tận tâm, sẵn sàng đáp ứng 24/7"
-              width="800"
+              width="80%"
               // height="563"
             />
           </p>
@@ -256,7 +257,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5491"
               src="https://3.bp.blogspot.com/-ISVlOsweBzg/WiJlFggNGPI/AAAAAAAAAds/JlOS2F2GX6QbhLb-9hCB4VzsUZ1ZA3DkwCLcBGAs/s1600/2.jpg"
               alt="Những chương trình 789 Club [Event] tặng quà siêu hot không thể bỏ lỡ"
-              width="800"
+              width="80%"
               // height="366"
             />
           </p>
@@ -335,7 +336,7 @@ export default async function Home() {
               className="aligncenter wp-image-5345"
               src="https://drscdn.500px.org/photo/1083336279/q%3D90_m%3D1024/v2?sig=a8af305a60522b8ca33040d3bbfb3612f77d563c0eda3dc85bb58c57e42376d7"
               alt="Thông tin cần biết về cổng game Hit Club"
-              width="800"
+              width="80%"
               // height="323"
             />
           </p>
@@ -418,7 +419,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5344"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/man-club-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game Man Club"
-              width="800"
+              width="80%"
               // height="352"
             />
           </p>
@@ -495,7 +496,7 @@ export default async function Home() {
               className="aligncenter wp-image-5343"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/iwin-club-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game Iwin Club"
-              width="800"
+              width="80%"
               // height="312"
             />
           </p>
@@ -577,7 +578,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5342"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Sunwin-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game Sunwin"
-              width="800"
+              width="80%"
               // height="425"
             />
           </p>
@@ -662,7 +663,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5341"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Go88-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game Go88"
-              width="800"
+              width="80%"
               // height="339"
             />
           </p>
@@ -746,7 +747,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5340"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/b52-club-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game B52 Club"
-              width="800"
+              width="80%"
               // height="351"
             />
           </p>
@@ -824,7 +825,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5339"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Zowin-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game Zowin"
-              width="800"
+              width="80%"
               // height="363"
             />
           </p>
@@ -896,7 +897,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5338"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Nhat-vip-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game  Nhatvip"
-              width="800"
+              width="80%"
               // height="362"
             />
           </p>
@@ -974,7 +975,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5337"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Win79-giao-dien.jpg"
               alt="Thông tin cần biết về cổng game Win79 "
-              width="800"
+              width="80%"
               // height="353"
             />
           </p>
@@ -1218,7 +1219,7 @@ export default async function Home() {
               className="aligncenter size-full wp-image-5336"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Uu-dai.jpg"
               alt="Nắm bắt được kiến thức về game"
-              width="800"
+              width="80%"
               // height="414"
             />
           </p>

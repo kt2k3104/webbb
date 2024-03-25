@@ -1,41 +1,18 @@
 const Footer = () => {
   return (
-    <footer style={{ width: "100%", padding: "0" }}>
-      <div
-        style={{
-          width: "100%",
-          height: "132px",
-          backgroundColor: "#fff",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "10px",
-        }}
-      >
+    <footer className="footer-wrapper">
+      <div className="footer-content-1">
         <a href="page.tsx">
-          <img
-            src="https://gamedoithuong3.net/wp-content/uploads/2022/09/logo.png"
-            height={45}
-          ></img>
+          <img src="https://gamedoithuong3.net/wp-content/uploads/2022/09/logo.png"></img>
         </a>
-        <p style={{ width: "50%" }}>
+        <p>
           Game Bài Đổi Thưởng ✅ TOP 10 game đánh bài đổi thưởng uy tín 2021 Tải
           game bài đổi thưởng nhiều người chơi nhất hiện nay, tải game bài trực
           tuyến đổi thẻ cào, tiền thật. Thiên đường game Go 88 đổi thưởng hàng
           đầu hiện nay.
         </p>
       </div>
-      <div
-        style={{
-          width: "100%",
-          height: "96px",
-          backgroundColor: "#000",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "0 100px",
-        }}
-        className="row text-center"
-      >
+      <div className="footer-content-2 row text-center">
         <div
           style={{ color: "#fff", fontSize: "12px", height: "36px" }}
           className="col-lg-4"

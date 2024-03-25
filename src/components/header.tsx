@@ -1,14 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+
 import type { MenuProps } from "antd";
 import { Image, Menu } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import "../app/styles.scss";
 
 const items: MenuProps["items"] = [
   {
@@ -61,17 +58,11 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <div
-        style={{
-          height: "28px",
-          borderBottom: "1px solid #ececec",
-        }}
-      >
+      <div className="header-wrapper">
         <h2
           style={{
             fontSize: "14px",
             fontWeight: "700",
-            margin: "0 100px",
             lineHeight: "28px",
           }}
         >
@@ -96,6 +87,7 @@ const Header: React.FC = () => {
           justifyContent: "center",
           marginBottom: "15px",
         }}
+        className="header-images"
       >
         <Image
           src="https://gamedoithuong3.net/wp-content/uploads/2022/09/logo.png"
@@ -110,9 +102,9 @@ const Header: React.FC = () => {
       </div>
       <div
         style={{
-          padding: "0 100px",
           backgroundColor: "#fff",
         }}
+        className="header-menu"
       >
         <Menu
           onClick={onClick}
