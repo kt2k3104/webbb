@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "@/app/styles.scss";
 import { revalidateTag } from "next/cache";
+import { handleUpdateGameAction } from "@/actions/games";
 
 const EditGame = (props: any) => {
   const [name, setName] = useState("");
@@ -32,16 +33,29 @@ const EditGame = (props: any) => {
   const handleSubmitEditGame = async (e: any) => {
     e.preventDefault();
 
-    const res = await axios.post("http://143.110.146.15/games/" + params.id, {
-      name: e.target.name.value,
-      imageURL: e.target.image.value,
-      description: e.target.description.value,
-      link: e.target.link.value,
-      rating: e.target.rating.value,
-    });
-    if (res.data.message === "update game success") {
+    // const res = await axios.post("http://143.110.146.15/games/" + params.id, {
+    //   name: e.target.name.value,
+    //   imageURL: e.target.image.value,
+    //   description: e.target.description.value,
+    //   link: e.target.link.value,
+    //   rating: e.target.rating.value,
+    // });
+    // if (res.data.message === "update game success") {
+    //   alert("Update game success");
+    //   window.location.href = "/";
+    // }
+    const res = await handleUpdateGameAction(
+      {
+        name: e.target.name.value,
+        imageURL: e.target.image.value,
+        description: e.target.description.value,
+        link: e.target.link.value,
+        rating: e.target.rating.value,
+      },
+      params.id
+    );
+    if (res.message === "update game success") {
       alert("Update game success");
-      revalidateTag("data");
       window.location.href = "/";
     }
   };

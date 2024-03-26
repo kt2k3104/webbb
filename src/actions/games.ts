@@ -14,9 +14,10 @@ export const handleCreateGameAction = async (data: any) => {
   return await res.json();
 };
 
-export const handleUpdateGameAction = async (data: any) => {
+export const handleUpdateGameAction = async (data: any, id: any) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/games/${data.id}`,
+    // `${process.env.NEXT_PUBLIC_URL_BACKEND}/games/${data.id}`,
+    `http://143.110.146.15/games/${id}`,
     {
       method: "POST",
       body: JSON.stringify(data),
