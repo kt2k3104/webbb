@@ -10,7 +10,7 @@ export const handleCreateGameAction = async (data: any) => {
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
   });
-  //   revalidateTag("list-users");
+  revalidateTag("data");
   return await res.json();
 };
 
@@ -26,7 +26,7 @@ export const handleUpdateGameAction = async (data: any) => {
       },
     }
   );
-  //   revalidateTag("list-users");
+  revalidateTag("data");
   return await res.json();
 };
 
@@ -41,6 +41,6 @@ export const handleDeleteGameAction = async (data: any) => {
       },
     }
   );
-  //   revalidateTag("list-users");
+  revalidateTag("data");
   return await res.json();
 };

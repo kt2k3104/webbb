@@ -24,7 +24,6 @@ const EditGame = (props: any) => {
       setDescription(res.data.game.description);
       setLink(res.data.game.link);
       setRating(res.data.game.rating);
-      revalidateTag("data");
     };
 
     handleFetchGame();
@@ -42,6 +41,7 @@ const EditGame = (props: any) => {
     });
     if (res.data.message === "update game success") {
       alert("Update game success");
+      revalidateTag("data");
       window.location.href = "/";
     }
   };
