@@ -3,8 +3,11 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "@/app/styles.scss";
-import { revalidateTag } from "next/cache";
-import { handleUpdateGameAction } from "@/actions/games";
+import {
+  handleDeleteGameAction,
+  handleUpdateGameAction,
+} from "@/actions/games";
+import { Button, Modal } from "antd";
 
 const EditGame = (props: any) => {
   const [name, setName] = useState("");
@@ -12,8 +15,24 @@ const EditGame = (props: any) => {
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [rating, setRating] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { params } = props;
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = async () => {
+    setIsModalOpen(false);
+    await handleDeleteGameAction(params.id);
+    alert("delete game success");
+    window.location.href = "/";
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const handleFetchGame = async () => {
@@ -32,18 +51,6 @@ const EditGame = (props: any) => {
 
   const handleSubmitEditGame = async (e: any) => {
     e.preventDefault();
-
-    // const res = await axios.post("http://143.110.146.15/games/" + params.id, {
-    //   name: e.target.name.value,
-    //   imageURL: e.target.image.value,
-    //   description: e.target.description.value,
-    //   link: e.target.link.value,
-    //   rating: e.target.rating.value,
-    // });
-    // if (res.data.message === "update game success") {
-    //   alert("Update game success");
-    //   window.location.href = "/";
-    // }
     const res = await handleUpdateGameAction(
       {
         name: e.target.name.value,
@@ -62,7 +69,25 @@ const EditGame = (props: any) => {
   return (
     <div className="edit-game-id-wrapper">
       <Link href={"/edit-game"}>return</Link>
-      <h1>Edit Game: {name}</h1>
+      <div className="edit-game-id-header">
+        <h1>Edit Game: {name}</h1>
+        <Button
+          onClick={() => {
+            showModal();
+          }}
+        >
+          Delete Game
+        </Button>
+        <Modal
+          title="Delete Game"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          style={{ marginTop: "20vh" }}
+        >
+          <p>Are you sure you want to delele this game?</p>
+        </Modal>
+      </div>
       <form onSubmit={handleSubmitEditGame} className="needs-validation">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

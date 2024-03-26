@@ -171,3 +171,6 @@
    display: flex;
    padding: 10px;
 }
+.edit-game-id-header{
+   @include flex($jutify: space-between);
+}

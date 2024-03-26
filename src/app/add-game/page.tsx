@@ -1,19 +1,20 @@
 "use client";
 import axios from "axios";
 import "@/app/styles.scss";
+import { handleCreateGameAction } from "@/actions/games";
 
 const AddGame = () => {
   const handleSubmitAddGame = async (e: any) => {
     e.preventDefault();
 
-    const res = await axios.post("http://143.110.146.15/games", {
+    const res = await handleCreateGameAction({
       name: e.target.name.value,
       imageURL: e.target.image.value,
       description: e.target.description.value,
       link: e.target.link.value,
       rating: e.target.rating.value,
     });
-    if (res.data.message === "create game success") {
+    if (res.message === "create game success") {
       alert("Create game success");
       window.location.href = "/";
     }
