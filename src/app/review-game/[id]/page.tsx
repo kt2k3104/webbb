@@ -12,8 +12,8 @@ const ReviewGamePage = async (props: any) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Cache-Control": "no-cache",
     },
+    next: { tags: ["data"] },
   });
   resGame = await resGame.json();
   const games: IGame[] = resGame.games;

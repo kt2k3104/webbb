@@ -6,12 +6,7 @@ import axios from "axios";
 import "./styles.scss";
 
 export default async function Home() {
-  const res = await axios.get("http://143.110.146.15/games", {
-    // Không sử dụng cache
-    headers: {
-      "Cache-Control": "no-cache",
-    },
-  });
+  const res = await axios.get("http://143.110.146.15/games");
   const games: IGame[] = res.data.games;
   return (
     <>

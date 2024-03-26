@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "@/app/styles.scss";
+import { revalidateTag } from "next/cache";
 
 const EditGame = (props: any) => {
   const [name, setName] = useState("");
@@ -23,6 +24,7 @@ const EditGame = (props: any) => {
       setDescription(res.data.game.description);
       setLink(res.data.game.link);
       setRating(res.data.game.rating);
+      revalidateTag("data");
     };
 
     handleFetchGame();
