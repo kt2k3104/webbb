@@ -2,12 +2,18 @@ import BoxGame from "@/components/boxGame/BoxGame";
 import { IGame } from "@/types/backend";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
-import axios from "axios";
 import "./styles.scss";
 
 export default async function Home() {
-  const res = await axios.get("http://143.110.146.15/games");
-  const games: IGame[] = res.data.games;
+  let resGame: any = await fetch("http://143.110.146.15/games", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    next: { tags: ["data"] },
+  });
+  resGame = await resGame.json();
+  const games: IGame[] = resGame.games;
   return (
     <>
       <div className="home-wrapper">

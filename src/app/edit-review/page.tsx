@@ -1,14 +1,16 @@
-import axios from "axios";
+import { IGame } from "@/types/backend";
 import Link from "next/link";
 
 const EditGame = async () => {
-  const res = await axios.get("http://143.110.146.15/games", {
-    // Không sử dụng cache
+  let resGame: any = await fetch("http://143.110.146.15/games", {
+    method: "GET",
     headers: {
-      "Cache-Control": "no-cache",
+      "Content-Type": "application/json",
     },
+    next: { tags: ["data"] },
   });
-  const games = res.data.games;
+  resGame = await resGame.json();
+  const games: IGame[] = resGame.games;
 
   return (
     <div className="edit-review-wrapper">
