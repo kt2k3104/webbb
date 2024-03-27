@@ -1,6 +1,12 @@
 import Link from "next/link";
 import "@/app/styles.scss";
 import { IGame } from "@/types/backend";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Edit Game",
+  description: "Edit Game",
+};
 
 const EditGame = async () => {
   let resGame: any = await fetch("http://143.110.146.15/games", {

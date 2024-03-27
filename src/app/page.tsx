@@ -1,8 +1,14 @@
 import BoxGame from "@/components/boxGame/BoxGame";
 import { IGame } from "@/types/backend";
-import { SearchOutlined } from "@ant-design/icons";
+import SearchOutlined from "@ant-design/icons/SearchOutlined";
 import { Input } from "antd";
 import "./styles.scss";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Top Game bài đổi thưởng",
+  description: "Top Game bài đổi thưởng",
+};
 
 export default async function Home() {
   let resGame: any = await fetch("http://143.110.146.15/games", {
@@ -76,7 +82,7 @@ export default async function Home() {
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
             <img
-              style={{ margin: "15px " }}
+              style={{ margin: "15px" }}
               decoding="async"
               className="aligncenter wp-image-5349 size-full"
               src="https://gamedoithuong3.net/wp-content/uploads/2023/05/Go88-cong-game-1.jpg"

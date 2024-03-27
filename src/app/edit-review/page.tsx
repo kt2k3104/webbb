@@ -1,7 +1,13 @@
 import { IGame } from "@/types/backend";
+import { Metadata } from "next";
 import Link from "next/link";
 
-const EditGame = async () => {
+export const metadata: Metadata = {
+  title: "Edit Review",
+  description: "Edit Review",
+};
+
+const EditReview = async () => {
   let resGame: any = await fetch("http://143.110.146.15/games", {
     method: "GET",
     headers: {
@@ -42,4 +48,4 @@ const EditGame = async () => {
   );
 };
 
-export default EditGame;
+export default EditReview;

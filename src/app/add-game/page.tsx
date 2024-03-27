@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import "@/app/styles.scss";
 import { handleCreateGameAction } from "@/actions/games";
 

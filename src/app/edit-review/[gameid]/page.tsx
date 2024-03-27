@@ -1,7 +1,7 @@
 "use client";
 
 import { IReview } from "@/types/backend";
-import { CloseOutlined } from "@ant-design/icons";
+import CloseOutlined from "@ant-design/icons/CloseOutlined";
 import { Button } from "antd";
 import axios from "axios";
 import Link from "next/link";

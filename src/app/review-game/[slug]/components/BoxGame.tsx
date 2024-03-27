@@ -1,9 +1,8 @@
-import {
-  CheckCircleOutlined,
-  RightCircleOutlined,
-  StarFilled,
-} from "@ant-design/icons";
+import CheckCircleOutlined from "@ant-design/icons/CheckCircleOutlined";
+import RightCircleOutlined from "@ant-design/icons/RightCircleOutlined";
+import StarFilled from "@ant-design/icons/StarFilled";
 import Link from "next/link";
+import { convertSlugUrl } from "../page";
 
 const BoxGame = ({ game, index }: any) => {
   const keyframes = `
@@ -164,7 +163,9 @@ const BoxGame = ({ game, index }: any) => {
             Chơi ngay
           </Link>
           <Link
-            href={`/review-game/${game.id}`}
+            href={`/review-game/${convertSlugUrl(
+              game.name + " " + game.description
+            )}-${game.id}.html`}
             style={{
               width: "130px",
               height: "40px",

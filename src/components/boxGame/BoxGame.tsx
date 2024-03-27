@@ -1,3 +1,4 @@
+import { convertSlugUrl } from "@/app/review-game/[slug]/page";
 import { IGame } from "@/types/backend";
 import {
   CheckCircleOutlined,
@@ -143,7 +144,9 @@ const BoxGame = ({ game, index }: { game: IGame; index: number }) => {
               Chơi ngay
             </Link>
             <Link
-              href={`/review-game/${game.id}`}
+              href={`/review-game/${convertSlugUrl(
+                game.name + " " + game.description
+              )}-${game.id}.html`}
               style={{
                 width: "130px",
                 height: "40px",
