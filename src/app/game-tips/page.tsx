@@ -24,7 +24,7 @@ const UsersPage = async (props: any) => {
       <h2>Thủ thuật game</h2>
       <span>Home - Thủ thuật game</span>
       <div className="card-game-content row">
-        <button className="card-game-content-left-btn">Game Đánh Bài</button>
+        <button className="card-game-content-left-btn">Thủ thuật game</button>
         <div className="card-game-content-left col-sm-12 col-md-8">
           <Header games={games} />
           <Content />
