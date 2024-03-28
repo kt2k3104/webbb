@@ -1,3 +1,4 @@
+import { IGame } from "@/types/backend";
 import Link from "next/link";
 
 const Header = ({ game }: any) => {

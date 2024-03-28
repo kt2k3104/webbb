@@ -57,7 +57,7 @@ const ReviewGamePage = async (props: any) => {
   let game: IGame = games[0];
   let index = 0;
   games.forEach((item, indx) => {
-    if (item.id === +params.id) {
+    if (item.id === +idGame) {
       game = item;
       index = indx;
     }
