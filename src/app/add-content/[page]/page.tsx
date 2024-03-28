@@ -3,21 +3,21 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 
-const AddReview = (props: any) => {
+const AddContent = (props: any) => {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [imageURL, setImageURL] = useState("");
 
   const { params } = props;
 
-  const handleSubmitAddReview = async (e: any) => {
+  const handleSubmitAddContent = async (e: any) => {
     e.preventDefault();
 
-    const res = await axios.post("http://143.110.146.15/reviews", {
+    const res = await axios.post(`http://143.110.146.15/contents`, {
       title,
       contents,
       imageURL,
-      gameid: params.gameid,
+      page: params.page,
     });
     if (res.data.message === "create review success") {
       alert("Create review success");
@@ -30,11 +30,11 @@ const AddReview = (props: any) => {
   return (
     <form
       style={{ padding: "0 100px 30px" }}
-      onSubmit={handleSubmitAddReview}
+      onSubmit={handleSubmitAddContent}
       className="needs-validation"
     >
-      <Link href={"/add-review"}>return</Link>
-      <h2>Add Review Game:</h2>
+      <Link href={"/add-content"}>return</Link>
+      <h2>Add Content Page: Trang Chủ</h2>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Title
@@ -94,4 +94,4 @@ const AddReview = (props: any) => {
   );
 };
 
-export default AddReview;
+export default AddContent;
