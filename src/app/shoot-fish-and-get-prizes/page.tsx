@@ -9,6 +9,17 @@ export const metadata: Metadata = {
   description: "Bắn Cá Đổi Thưởng",
 };
 
+export const daoLonViTriCacPhanTuTrongMang = (arr: any[]) => {
+  const resultArray = [...arr];
+  for (let i = resultArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = resultArray[i];
+    resultArray[i] = resultArray[j];
+    resultArray[j] = temp;
+  }
+  return resultArray;
+};
+
 const UsersPage = async (props: any) => {
   let resGame: any = await fetch("http://143.110.146.15/games", {
     method: "GET",
@@ -26,7 +37,10 @@ const UsersPage = async (props: any) => {
       <div className="card-game-content row">
         <button className="card-game-content-left-btn">Game Đánh Bài</button>
         <div className="card-game-content-left col-sm-12 col-md-8">
-          <Header games={games} title={"BẮN CÁ ĐỔI THƯỞNG"} />
+          <Header
+            games={daoLonViTriCacPhanTuTrongMang(games)}
+            title={"BẮN CÁ ĐỔI THƯỞNG"}
+          />
           <Content />
         </div>
         <Sidebar games={games} />
