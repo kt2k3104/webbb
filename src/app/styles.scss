@@ -177,3 +177,41 @@
 .edit-game-id-header{
    @include flex($jutify: space-between);
 }
+
+.card-game-wrapper{
+   padding: 10px;
+   @include responsive($breakpoint: $breakpoint-lg){
+      padding: 30px 75px 30px 100px;
+   }
+   h2{
+      font-weight: 700;
+   }
+   span{
+      color: #7f8c8d;
+   }
+
+   .card-game-content{
+      margin-top: 15px;
+      position: relative;
+      padding: 15px 10px 0;
+
+      .card-game-content-left-btn{
+         position: absolute;
+         top: 0;
+         left: 30px;
+         width: 120px;
+         background-color: red;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 5px;
+         font-size: 12px;
+         font-weight: 700;
+         color:#fff;
+      }
+      .card-game-content-left{
+         background-color: #fff;
+         border-radius: 5px;
+         padding: 10px;
+      }
+   }
+}
