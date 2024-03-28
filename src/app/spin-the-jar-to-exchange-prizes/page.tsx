@@ -3,11 +3,21 @@ import { Metadata } from "next";
 import Header from "../card-game/components/Header";
 import Content from "../card-game/components/Content";
 import Sidebar from "../review-game/[slug]/components/Sidebar";
-import { daoLonViTriCacPhanTuTrongMang } from "../shoot-fish-and-get-prizes/page";
 
 export const metadata: Metadata = {
   title: "Quay hũ đổi thưởng",
   description: "Quay hũ đổi thưởng",
+};
+
+const daoLonViTriCacPhanTuTrongMang = (arr: any[]) => {
+  const resultArray = [...arr];
+  for (let i = resultArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = resultArray[i];
+    resultArray[i] = resultArray[j];
+    resultArray[j] = temp;
+  }
+  return resultArray;
 };
 
 const UsersPage = async (props: any) => {

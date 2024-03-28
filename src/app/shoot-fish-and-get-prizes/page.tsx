@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Bắn Cá Đổi Thưởng",
 };
 
-export const daoLonViTriCacPhanTuTrongMang = (arr: any[]) => {
+const daoLonViTriCacPhanTuTrongMang = (arr: any[]) => {
   const resultArray = [...arr];
   for (let i = resultArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
